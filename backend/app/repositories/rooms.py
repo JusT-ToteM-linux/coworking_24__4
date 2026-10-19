@@ -65,7 +65,7 @@ async def avaliability(conn, room_id:int, day, tz:str):
     rows = await conn.fetch("SELECT slot_start, slot_end, is_free FROM find_free_slots($1, $2, $3)", room_id, day, tz)
     return [dict(i) for i in rows]
 
-async def free_rom(conn, start, end, min_capacity:int):
+async def free_room(conn, start, end, min_capacity:int):
     rows = await conn.fetch(
         """
             SELECT o_room_id as id, o_name, o_place AS place, o_capacity AS capacity
