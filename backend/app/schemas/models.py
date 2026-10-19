@@ -11,7 +11,7 @@ class LogIn(BaseModel):
     email: str
     password: str
 
-class RoomId(BaseModel):
+class RoomIn(BaseModel):
     location_id: int
     name: str = Field(min_length=2, max_length=100)
     capacity: str = Field(ge=0, le=100)
